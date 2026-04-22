@@ -1,0 +1,1823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.2">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Digit API Test Plan" enabled="true">
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">false</boolProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Digit API Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">300</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.delayedStart">false</boolProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="user auth" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="username" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">username</stringProp>
+                <stringProp name="Argument.value">StudioSuperUser</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="password" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">password</stringProp>
+                <stringProp name="Argument.value">eGov@123</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="userType" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">userType</stringProp>
+                <stringProp name="Argument.value">EMPLOYEE</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="tenantId" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">tenantId</stringProp>
+                <stringProp name="Argument.value">st</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="scope" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">scope</stringProp>
+                <stringProp name="Argument.value">read</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="grant_type" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">grant_type</stringProp>
+                <stringProp name="Argument.value">password</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="check" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">check</stringProp>
+                <stringProp name="Argument.value">true</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">unified-uat.digit.org</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/user/oauth/token</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">authToken</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.access_token</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic ZWdvdi11c2VyLWNsaWVudDo=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST service Create Application" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;Application&quot;: {&#xd;
+        &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+        &quot;module&quot;: &quot;PGR_showcase&quot;,&#xd;
+        &quot;businessService&quot;: &quot;Demo_case&quot;,&#xd;
+        &quot;serviceCode&quot;: &quot;pgr_showcase-demo_case-svc-2025-12-16-008654&quot;,&#xd;
+        &quot;status&quot;: &quot;ACTIVE&quot;,&#xd;
+        &quot;channel&quot;: &quot;counter&quot;,&#xd;
+        &quot;reference&quot;: null,&#xd;
+        &quot;workflowStatus&quot;: &quot;applied&quot;,&#xd;
+        &quot;serviceDetails&quot;: {&#xd;
+            &quot;Section2&quot;: {&#xd;
+                &quot;ComplaintType&quot;: &quot;STREETLIGHTS&quot;&#xd;
+            }&#xd;
+        },&#xd;
+        &quot;applicants&quot;: [&#xd;
+            {&#xd;
+                &quot;type&quot;: &quot;individual&quot;,&#xd;
+                &quot;active&quot;: true,&#xd;
+                &quot;prefix&quot;: &quot;91&quot;,&#xd;
+                &quot;additionalFields&quot;: {&#xd;
+                    &quot;schema&quot;: null,&#xd;
+                    &quot;version&quot;: null,&#xd;
+                    &quot;fields&quot;: [&#xd;
+                        {&#xd;
+                            &quot;key&quot;: &quot;email&quot;,&#xd;
+                            &quot;value&quot;: &quot;qwerty@gmail.com&quot;&#xd;
+                        },&#xd;
+                        {&#xd;
+                            &quot;key&quot;: &quot;gender&quot;,&#xd;
+                            &quot;value&quot;: &quot;MALE&quot;&#xd;
+                        }&#xd;
+                    ]&#xd;
+                },&#xd;
+                &quot;name&quot;: &quot;qwerty&quot;,&#xd;
+                &quot;mobileNumber&quot;: 9876567876,&#xd;
+                &quot;emailId&quot;: &quot;qwerty@gmail.com&quot;&#xd;
+            }&#xd;
+        ],&#xd;
+        &quot;address&quot;: {&#xd;
+            &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+            &quot;latitude&quot;: 20.488773,&#xd;
+            &quot;longitude&quot;: 77.453613,&#xd;
+            &quot;addressNumber&quot;: &quot;1&quot;,&#xd;
+            &quot;addressLine1&quot;: &quot;ST 123&quot;,&#xd;
+            &quot;addressLine2&quot;: &quot;&quot;,&#xd;
+            &quot;landmark&quot;: &quot;&quot;,&#xd;
+            &quot;city&quot;: &quot;&quot;,&#xd;
+            &quot;pincode&quot;: &quot;876543&quot;,&#xd;
+            &quot;hierarchyType&quot;: &quot;ADMIN&quot;,&#xd;
+            &quot;boundarylevel&quot;: &quot;VILLAGE&quot;,&#xd;
+            &quot;boundarycode&quot;: &quot;KANO_NI_01_44_10_11_01_KOFAR_FADA_KAN_08&quot;,&#xd;
+            &quot;additionalFields&quot;: {&#xd;
+                &quot;schema&quot;: null,&#xd;
+                &quot;version&quot;: null,&#xd;
+                &quot;fields&quot;: []&#xd;
+            }&#xd;
+        },&#xd;
+        &quot;documents&quot;: [&#xd;
+            {&#xd;
+                &quot;documentType&quot;: &quot;complaint proof&quot;,&#xd;
+                &quot;fileStoreId&quot;: &quot;1290f152-fb54-479c-b386-c0cc3a3dae94&quot;,&#xd;
+                &quot;documentUid&quot;: null,&#xd;
+                &quot;additionalDetails&quot;: {}&#xd;
+            }&#xd;
+        ],&#xd;
+        &quot;additionalDetails&quot;: {&#xd;
+            &quot;ref1&quot;: &quot;val1&quot;&#xd;
+        },&#xd;
+        &quot;Workflow&quot;: {&#xd;
+            &quot;action&quot;: &quot;APPLIED&quot;,&#xd;
+            &quot;comment&quot;: &quot;&quot;,&#xd;
+            &quot;assignees&quot;: [],&#xd;
+            &quot;businessService&quot;: &quot;PGR_showcase.Demo_case&quot;&#xd;
+        }&#xd;
+    },&#xd;
+    &quot;RequestInfo&quot;: {&#xd;
+        &quot;apiId&quot;: &quot;Rainmaker&quot;,&#xd;
+        &quot;authToken&quot;: &quot;${authToken}&quot;,&#xd;
+        &quot;userInfo&quot;: {&#xd;
+            &quot;id&quot;: 121041,&#xd;
+            &quot;uuid&quot;: &quot;ff1381dd-f8ad-41f5-ac73-24ebc0130cf6&quot;,&#xd;
+            &quot;userName&quot;: &quot;STUDIOUAT&quot;,&#xd;
+            &quot;name&quot;: &quot;STUDIOUAT&quot;,&#xd;
+            &quot;mobileNumber&quot;: &quot;8765456787&quot;,&#xd;
+            &quot;emailId&quot;: &quot;Studio@gmail.com&quot;,&#xd;
+            &quot;locale&quot;: null,&#xd;
+            &quot;type&quot;: &quot;EMPLOYEE&quot;,&#xd;
+            &quot;roles&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;STUDIO_EMPLOYEE&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_EMPLOYEE&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;HRMS Admin&quot;,&#xd;
+                    &quot;code&quot;: &quot;HRMS_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_DESIGNER&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;STUDIO ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;active&quot;: true,&#xd;
+            &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+            &quot;permanentCity&quot;: &quot;st Corporation&quot;&#xd;
+        },&#xd;
+        &quot;msgId&quot;: &quot;1768895644443|en_IN&quot;,&#xd;
+        &quot;plainAccessRequest&quot;: {}&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">unified-uat.digit.org</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/public-service/v1/application/pgr_showcase-demo_case-svc-2025-12-16-008654</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="accept" elementType="Header">
+                <stringProp name="Header.name">accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="x-tenant-id" elementType="Header">
+                <stringProp name="Header.name">x-tenant-id</stringProp>
+                <stringProp name="Header.value">st</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="false">
+            <stringProp name="JSONPostProcessor.referenceNames">applicationId</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.Application.id</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="false">
+            <stringProp name="JSONPostProcessor.referenceNames">applicationNumber</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.Application.applicationNumber</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="false">
+            <stringProp name="JSONPostProcessor.referenceNames">addressId</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.Application.address.id</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="false">
+            <stringProp name="JSONPostProcessor.referenceNames">documentId</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.Application.documents[0].id</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="false">
+            <stringProp name="JSONPostProcessor.referenceNames">applicantsId</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.Application.applicants[0].id</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PUT Update Application" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;Application&quot;: {&#xd;
+        &quot;id&quot;: &quot;${applicationId}&quot;,&#xd;
+        &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+        &quot;module&quot;: &quot;PGR_showcase&quot;,&#xd;
+        &quot;businessService&quot;: &quot;Demo_case&quot;,&#xd;
+        &quot;status&quot;: &quot;INACTIVE&quot;,&#xd;
+        &quot;channel&quot;: &quot;counter&quot;,&#xd;
+        &quot;version&quot;: 2,&#xd;
+        &quot;applicationNumber&quot;: &quot;${applicationNumber}&quot;,&#xd;
+        &quot;reference&quot;: null,&#xd;
+        &quot;workflowStatus&quot;: &quot;PENDING_FOR_ASSIGNMENT&quot;,&#xd;
+        &quot;serviceCode&quot;: &quot;pgr_showcase-demo_case-svc-2025-12-16-008654&quot;,&#xd;
+        &quot;serviceDetails&quot;: {&#xd;
+            &quot;Section2&quot;: {&#xd;
+                &quot;ComplaintType&quot;: &quot;STREETLIGHTS&quot;&#xd;
+            }&#xd;
+        },&#xd;
+        &quot;applicants&quot;: [&#xd;
+            {&#xd;
+                &quot;id&quot;: &quot;${applicantsId}&quot;,&#xd;
+                &quot;type&quot;: &quot;individual&quot;,&#xd;
+                &quot;userId&quot;: &quot;IND-2025-11-10-135499&quot;,&#xd;
+                &quot;name&quot;: &quot;qwerty&quot;,&#xd;
+                &quot;mobileNumber&quot;: 9876567876,&#xd;
+                &quot;emailId&quot;: &quot;qwerty@gmail.com&quot;,&#xd;
+                &quot;prefix&quot;: &quot;&quot;,&#xd;
+                &quot;active&quot;: true,&#xd;
+                &quot;gender&quot;: &quot;FEMALE&quot;,&#xd;
+                &quot;additionalFields&quot;: {&#xd;
+                    &quot;fields&quot;: [&#xd;
+                        {&#xd;
+                            &quot;key&quot;: &quot;email&quot;,&#xd;
+                            &quot;value&quot;: &quot;qwerty@gmail.com&quot;&#xd;
+                        },&#xd;
+                        {&#xd;
+                            &quot;key&quot;: &quot;gender&quot;,&#xd;
+                            &quot;value&quot;: &quot;MALE&quot;&#xd;
+                        }&#xd;
+                    ]&#xd;
+                }&#xd;
+            }&#xd;
+        ],&#xd;
+        &quot;additionalDetails&quot;: {&#xd;
+            &quot;ref1&quot;: &quot;val1&quot;&#xd;
+        },&#xd;
+        &quot;address&quot;: {&#xd;
+            &quot;id&quot;: &quot;${addressId}&quot;,&#xd;
+            &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+            &quot;latitude&quot;: 20.488773,&#xd;
+            &quot;longitude&quot;: 77.453613,&#xd;
+            &quot;addressNumber&quot;: &quot;1&quot;,&#xd;
+            &quot;addressLine1&quot;: &quot;ST 123&quot;,&#xd;
+            &quot;addressLine2&quot;: &quot;&quot;,&#xd;
+            &quot;landmark&quot;: &quot;&quot;,&#xd;
+            &quot;city&quot;: &quot;&quot;,&#xd;
+            &quot;pincode&quot;: &quot;876543&quot;,&#xd;
+            &quot;properties&quot;: {},&#xd;
+            &quot;hierarchyType&quot;: &quot;ADMIN&quot;,&#xd;
+            &quot;boundaryType&quot;: &quot;VILLAGE&quot;,&#xd;
+            &quot;boundarylevel&quot;: &quot;VILLAGE&quot;,&#xd;
+            &quot;boundaryCode&quot;: &quot;KANO_NI_01_44_10_11_01_KOFAR_FADA_KAN_08&quot;,&#xd;
+            &quot;boundarycode&quot;: &quot;KANO_NI_01_44_10_11_01_KOFAR_FADA_KAN_08&quot;,&#xd;
+            &quot;applicationNumber&quot;: &quot;pgr_showcase-demo_case-app-2026-01-20-011883&quot;&#xd;
+        },&#xd;
+        &quot;workflow&quot;: {&#xd;
+            &quot;action&quot;: &quot;ASSIGN&quot;,&#xd;
+            &quot;businessService&quot;: &quot;PGR_showcase.Demo_case&quot;&#xd;
+        },&#xd;
+        &quot;auditDetails&quot;: {&#xd;
+            &quot;createdBy&quot;: &quot;ff1381dd-f8ad-41f5-ac73-24ebc0130cf6&quot;,&#xd;
+            &quot;lastModifiedBy&quot;: &quot;ff1381dd-f8ad-41f5-ac73-24ebc0130cf6&quot;,&#xd;
+            &quot;createdTime&quot;: 1768895646000,&#xd;
+            &quot;lastModifiedTime&quot;: 1768895646000&#xd;
+        },&#xd;
+        &quot;processInstance&quot;: null,&#xd;
+        &quot;documents&quot;: [&#xd;
+            {&#xd;
+                &quot;id&quot;: &quot;${documentId}&quot;,&#xd;
+                &quot;documentType&quot;: &quot;complaint proof&quot;,&#xd;
+                &quot;fileStoreId&quot;: &quot;1290f152-fb54-479c-b386-c0cc3a3dae94&quot;,&#xd;
+                &quot;auditDetails&quot;: {&#xd;
+                    &quot;createdBy&quot;: &quot;ff1381dd-f8ad-41f5-ac73-24ebc0130cf6&quot;,&#xd;
+                    &quot;lastModifiedBy&quot;: &quot;ff1381dd-f8ad-41f5-ac73-24ebc0130cf6&quot;,&#xd;
+                    &quot;createdTime&quot;: 1768895646000,&#xd;
+                    &quot;lastModifiedTime&quot;: 1768895646000&#xd;
+                }&#xd;
+            }&#xd;
+        ],&#xd;
+        &quot;recordNumber&quot;: &quot;&quot;&#xd;
+    },&#xd;
+    &quot;RequestInfo&quot;: {&#xd;
+        &quot;apiId&quot;: &quot;Rainmaker&quot;,&#xd;
+        &quot;authToken&quot;: &quot;${authToken}&quot;,&#xd;
+        &quot;userInfo&quot;: {&#xd;
+            &quot;id&quot;: 121041,&#xd;
+            &quot;uuid&quot;: &quot;ff1381dd-f8ad-41f5-ac73-24ebc0130cf6&quot;,&#xd;
+            &quot;userName&quot;: &quot;STUDIOUAT&quot;,&#xd;
+            &quot;name&quot;: &quot;STUDIOUAT&quot;,&#xd;
+            &quot;mobileNumber&quot;: &quot;8765456787&quot;,&#xd;
+            &quot;emailId&quot;: &quot;Studio@gmail.com&quot;,&#xd;
+            &quot;locale&quot;: null,&#xd;
+            &quot;type&quot;: &quot;EMPLOYEE&quot;,&#xd;
+            &quot;roles&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;STUDIO_EMPLOYEE&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_EMPLOYEE&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;HRMS Admin&quot;,&#xd;
+                    &quot;code&quot;: &quot;HRMS_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_DESIGNER&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;STUDIO ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;active&quot;: true,&#xd;
+            &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+            &quot;permanentCity&quot;: &quot;st Corporation&quot;&#xd;
+        },&#xd;
+        &quot;msgId&quot;: &quot;1768896025693|en_IN&quot;,&#xd;
+        &quot;plainAccessRequest&quot;: {}&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">unified-uat.digit.org</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/public-service/v1/application/pgr_showcase-demo_case-svc-2025-12-16-008654</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="accept" elementType="Header">
+                <stringProp name="Header.name">accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="x-tenant-id" elementType="Header">
+                <stringProp name="Header.name">x-tenant-id</stringProp>
+                <stringProp name="Header.value">st</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Application search number" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">unified-uat.digit.org</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/public-service/v1/application/pgr_showcase-demo_case-svc-2025-12-16-008654?applicationNumber=pgr_showcase-demo_case-app-2026-01-21-021984&amp;tenantId=st</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">auth-token</stringProp>
+                <stringProp name="Header.value">${authToken}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">x-tenant-id</stringProp>
+                <stringProp name="Header.value">st</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Application search" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">unified-uat.digit.org</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/public-service/v1/application/annual_celebration-school-svc-2025-09-17-000082?tenantId=st</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">auth-token</stringProp>
+                <stringProp name="Header.value">${authToken}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">x-tenant-id</stringProp>
+                <stringProp name="Header.value">st</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST birth Create Application" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;Application&quot;: {&#xd;
+        &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+        &quot;module&quot;: &quot;Birth_Reg_Demo&quot;,&#xd;
+        &quot;businessService&quot;: &quot;Registration_of_Birth&quot;,&#xd;
+        &quot;serviceCode&quot;: &quot;birth_reg_demo-registration_of_birth-svc-2025-09-25-000833&quot;,&#xd;
+        &quot;status&quot;: &quot;ACTIVE&quot;,&#xd;
+        &quot;channel&quot;: &quot;counter&quot;,&#xd;
+        &quot;reference&quot;: null,&#xd;
+        &quot;workflowStatus&quot;: &quot;applied&quot;,&#xd;
+        &quot;serviceDetails&quot;: {&#xd;
+            &quot;RegistrationDetails&quot;: {&#xd;
+                &quot;DateofRegistration&quot;: &quot;2025-09-26&quot;&#xd;
+            },&#xd;
+            &quot;InformationofChild&quot;: {&#xd;
+                &quot;DateofBirth&quot;: &quot;2025-09-26&quot;,&#xd;
+                &quot;Gender&quot;: &quot;Female&quot;,&#xd;
+                &quot;NameofChild&quot;: &quot;ketan&quot;,&#xd;
+                &quot;BirthPlace&quot;: &quot;Gujarat&quot;,&#xd;
+                &quot;Remarks&quot;: &quot;Good&quot;&#xd;
+            },&#xd;
+            &quot;FatherInformation&quot;: {&#xd;
+                &quot;FatherName&quot;: &quot;Madhav&quot;,&#xd;
+                &quot;FatherMobileNo&quot;: &quot;9876543212&quot;,&#xd;
+                &quot;FatherNationality&quot;: &quot;Vasu&quot;&#xd;
+            },&#xd;
+            &quot;MotherInformation&quot;: {&#xd;
+                &quot;MotherName&quot;: &quot;Vasavi&quot;,&#xd;
+                &quot;MotherMobileNo&quot;: &quot;9876543565&quot;,&#xd;
+                &quot;MotherNationality&quot;: &quot;Indian&quot;&#xd;
+            }&#xd;
+        },&#xd;
+        &quot;applicants&quot;: [&#xd;
+            {&#xd;
+                &quot;type&quot;: &quot;individual&quot;,&#xd;
+                &quot;active&quot;: true,&#xd;
+                &quot;prefix&quot;: &quot;91&quot;,&#xd;
+                &quot;additionalFields&quot;: {&#xd;
+                    &quot;schema&quot;: null,&#xd;
+                    &quot;version&quot;: null,&#xd;
+                    &quot;fields&quot;: []&#xd;
+                },&#xd;
+                &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+                &quot;mobileNumber&quot;: 7349125121&#xd;
+            }&#xd;
+        ],&#xd;
+        &quot;address&quot;: {&#xd;
+            &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+            &quot;latitude&quot;: 21.289374,&#xd;
+            &quot;longitude&quot;: 78.969727,&#xd;
+            &quot;addressNumber&quot;: &quot;1&quot;,&#xd;
+            &quot;addressLine1&quot;: &quot;ST 123&quot;,&#xd;
+            &quot;addressLine2&quot;: &quot;&quot;,&#xd;
+            &quot;landmark&quot;: &quot;&quot;,&#xd;
+            &quot;city&quot;: &quot;KANO_NI_01_44_WUDIL&quot;,&#xd;
+            &quot;pincode&quot;: &quot;987654&quot;,&#xd;
+            &quot;hierarchyType&quot;: &quot;REVENUE&quot;,&#xd;
+            &quot;boundarylevel&quot;: &quot;locality&quot;,&#xd;
+            &quot;boundarycode&quot;: &quot;dev.city&quot;&#xd;
+        },&#xd;
+        &quot;documents&quot;: [],&#xd;
+        &quot;additionalDetails&quot;: {&#xd;
+            &quot;ref1&quot;: &quot;val1&quot;&#xd;
+        },&#xd;
+        &quot;Workflow&quot;: {&#xd;
+            &quot;action&quot;: &quot;SUBMIT&quot;,&#xd;
+            &quot;comment&quot;: &quot;&quot;,&#xd;
+            &quot;assignees&quot;: [],&#xd;
+            &quot;businessService&quot;: &quot;Birth_Reg_Demo.Registration_of_Birth&quot;&#xd;
+        }&#xd;
+    },&#xd;
+    &quot;RequestInfo&quot;: {&#xd;
+        &quot;apiId&quot;: &quot;Rainmaker&quot;,&#xd;
+        &quot;authToken&quot;: &quot;${authToken}&quot;,&#xd;
+        &quot;userInfo&quot;: {&#xd;
+            &quot;id&quot;: 120641,&#xd;
+            &quot;uuid&quot;: &quot;05a41bbf-e6ee-48af-94ce-4f03482e94bb&quot;,&#xd;
+            &quot;userName&quot;: &quot;StudioSuperUser&quot;,&#xd;
+            &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+            &quot;mobileNumber&quot;: &quot;7349125121&quot;,&#xd;
+            &quot;emailId&quot;: null,&#xd;
+            &quot;locale&quot;: null,&#xd;
+            &quot;type&quot;: &quot;EMPLOYEE&quot;,&#xd;
+            &quot;roles&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_DESIGNER&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Localisation admin&quot;,&#xd;
+                    &quot;code&quot;: &quot;LOC_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;STUDIO ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;MDMS ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;MDMS_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;active&quot;: true,&#xd;
+            &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+            &quot;permanentCity&quot;: null&#xd;
+        },&#xd;
+        &quot;msgId&quot;: &quot;1758870717527|en_IN&quot;,&#xd;
+        &quot;plainAccessRequest&quot;: {}&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">unified-uat.digit.org</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/public-service/v1/application/birth_reg_demo-registration_of_birth-svc-2025-09-25-000833</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="accept" elementType="Header">
+                <stringProp name="Header.name">accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="x-tenant-id" elementType="Header">
+                <stringProp name="Header.name">x-tenant-id</stringProp>
+                <stringProp name="Header.value">st</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="create checklist" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;Service&quot;: {&#xd;
+        &quot;clientId&quot;: &quot;${__UUID()}&quot;,&#xd;
+        &quot;serviceDefId&quot;: &quot;e9bafa66-8bbe-4d0b-a9ff-8189a56e1b66&quot;,&#xd;
+        &quot;accountId&quot;: &quot;05a41bbf-e6ee-48af-94ce-4f03482e94bb&quot;,&#xd;
+        &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+        &quot;attributes&quot;: [&#xd;
+            {&#xd;
+                &quot;attributeCode&quot;: &quot;Additional details to improve service&quot;,&#xd;
+                &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+                &quot;dataType&quot;: &quot;text&quot;,&#xd;
+                &quot;value&quot;: &quot;NOT_SELECTED&quot;&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;attributeCode&quot;: &quot;Feedback for hospital&quot;,&#xd;
+                &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+                &quot;dataType&quot;: &quot;SingleValueList&quot;,&#xd;
+                &quot;value&quot;: &quot;Good&quot;&#xd;
+            }&#xd;
+        ],&#xd;
+        &quot;additionalFields&quot;: [&#xd;
+            {&#xd;
+                &quot;action&quot;: &quot;SAVE_AS_DRAFT&quot;&#xd;
+            }&#xd;
+        ]&#xd;
+    },&#xd;
+    &quot;apiOperation&quot;: &quot;CREATE&quot;,&#xd;
+    &quot;RequestInfo&quot;: {&#xd;
+        &quot;apiId&quot;: &quot;Rainmaker&quot;,&#xd;
+        &quot;authToken&quot;: &quot;${authToken}&quot;,&#xd;
+        &quot;userInfo&quot;: {&#xd;
+            &quot;id&quot;: 120641,&#xd;
+            &quot;uuid&quot;: &quot;05a41bbf-e6ee-48af-94ce-4f03482e94bb&quot;,&#xd;
+            &quot;userName&quot;: &quot;StudioSuperUser&quot;,&#xd;
+            &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+            &quot;mobileNumber&quot;: &quot;7349125121&quot;,&#xd;
+            &quot;emailId&quot;: null,&#xd;
+            &quot;locale&quot;: null,&#xd;
+            &quot;type&quot;: &quot;EMPLOYEE&quot;,&#xd;
+            &quot;roles&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_DESIGNER&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Localisation admin&quot;,&#xd;
+                    &quot;code&quot;: &quot;LOC_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;STUDIO ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;MDMS ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;MDMS_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;active&quot;: true,&#xd;
+            &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+            &quot;permanentCity&quot;: null&#xd;
+        },&#xd;
+        &quot;msgId&quot;: &quot;1760526573701|en_IN&quot;,&#xd;
+        &quot;plainAccessRequest&quot;: {}&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">unified-uat.digit.org</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/health-service-request/service/v1/_create</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="accept" elementType="Header">
+                <stringProp name="Header.name">accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="x-tenant-id" elementType="Header">
+                <stringProp name="Header.name">x-tenant-id</stringProp>
+                <stringProp name="Header.value">st</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">clientId</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.Services[0].clientId </stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="update checklist" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;Service&quot;: {&#xd;
+        &quot;clientId&quot;: &quot;${clientId}&quot;,&#xd;
+        &quot;serviceDefId&quot;: &quot;e9bafa66-8bbe-4d0b-a9ff-8189a56e1b66&quot;,&#xd;
+        &quot;accountId&quot;: &quot;05a41bbf-e6ee-48af-94ce-4f03482e94bb&quot;,&#xd;
+        &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+        &quot;attributes&quot;: [&#xd;
+            {&#xd;
+                &quot;attributeCode&quot;: &quot;Additional details to improve service&quot;,&#xd;
+                &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+                &quot;id&quot;: &quot;fdbe121c-87a8-4b9b-9779-d565f2963dbf&quot;,&#xd;
+                &quot;dataType&quot;: &quot;text&quot;,&#xd;
+                &quot;value&quot;: &quot;NOT_SELECTED&quot;&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;attributeCode&quot;: &quot;Feedback for hospital&quot;,&#xd;
+                &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+                &quot;id&quot;: &quot;2e1c87db-fa03-42de-9cce-bcbd110a6bb2&quot;,&#xd;
+                &quot;dataType&quot;: &quot;SingleValueList&quot;,&#xd;
+                &quot;value&quot;: &quot;Good&quot;&#xd;
+            }&#xd;
+        ],&#xd;
+        &quot;additionalFields&quot;: [&#xd;
+            {&#xd;
+                &quot;action&quot;: &quot;SUBMIT&quot;&#xd;
+            }&#xd;
+        ],&#xd;
+        &quot;id&quot;: &quot;ab892160-eecc-4cf9-b04d-d32808b35544&quot;&#xd;
+    },&#xd;
+    &quot;apiOperation&quot;: &quot;UPDATE&quot;,&#xd;
+    &quot;RequestInfo&quot;: {&#xd;
+        &quot;apiId&quot;: &quot;Rainmaker&quot;,&#xd;
+        &quot;authToken&quot;: &quot;${authToken}&quot;,&#xd;
+        &quot;userInfo&quot;: {&#xd;
+            &quot;id&quot;: 120641,&#xd;
+            &quot;uuid&quot;: &quot;05a41bbf-e6ee-48af-94ce-4f03482e94bb&quot;,&#xd;
+            &quot;userName&quot;: &quot;StudioSuperUser&quot;,&#xd;
+            &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+            &quot;mobileNumber&quot;: &quot;7349125121&quot;,&#xd;
+            &quot;emailId&quot;: null,&#xd;
+            &quot;locale&quot;: null,&#xd;
+            &quot;type&quot;: &quot;EMPLOYEE&quot;,&#xd;
+            &quot;roles&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_DESIGNER&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Localisation admin&quot;,&#xd;
+                    &quot;code&quot;: &quot;LOC_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;STUDIO ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;MDMS ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;MDMS_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;active&quot;: true,&#xd;
+            &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+            &quot;permanentCity&quot;: null&#xd;
+        },&#xd;
+        &quot;msgId&quot;: &quot;1760526590057|en_IN&quot;,&#xd;
+        &quot;plainAccessRequest&quot;: {}&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">unified-uat.digit.org</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/health-service-request/service/v1/_update</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="accept" elementType="Header">
+                <stringProp name="Header.name">accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="x-tenant-id" elementType="Header">
+                <stringProp name="Header.name">x-tenant-id</stringProp>
+                <stringProp name="Header.value">st</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="checklist search" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;ServiceCriteria&quot;: {&#xd;
+        &quot;clientId&quot;: &quot;e6a3eaf3-144a-4a21-90a0-bcc8d8e009af&quot;,&#xd;
+        &quot;serviceDefId&quot;: &quot;e9bafa66-8bbe-4d0b-a9ff-8189a56e1b66&quot;,&#xd;
+        &quot;accountId&quot;: &quot;&quot;,&#xd;
+        &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+        &quot;rowVersion&quot;: 1,&#xd;
+        &quot;isDeleted&quot;: false&#xd;
+    },&#xd;
+    &quot;apiOperation&quot;: &quot;CREATE&quot;,&#xd;
+    &quot;RequestInfo&quot;: {&#xd;
+        &quot;apiId&quot;: &quot;Rainmaker&quot;,&#xd;
+        &quot;authToken&quot;: &quot;${authToken}&quot;,&#xd;
+        &quot;userInfo&quot;: {&#xd;
+            &quot;id&quot;: 120641,&#xd;
+            &quot;uuid&quot;: &quot;05a41bbf-e6ee-48af-94ce-4f03482e94bb&quot;,&#xd;
+            &quot;userName&quot;: &quot;StudioSuperUser&quot;,&#xd;
+            &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+            &quot;mobileNumber&quot;: &quot;7349125121&quot;,&#xd;
+            &quot;emailId&quot;: null,&#xd;
+            &quot;locale&quot;: null,&#xd;
+            &quot;type&quot;: &quot;EMPLOYEE&quot;,&#xd;
+            &quot;roles&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_DESIGNER&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Localisation admin&quot;,&#xd;
+                    &quot;code&quot;: &quot;LOC_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;STUDIO ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;MDMS ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;MDMS_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;active&quot;: true,&#xd;
+            &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+            &quot;permanentCity&quot;: null&#xd;
+        },&#xd;
+        &quot;msgId&quot;: &quot;1760526454911|en_IN&quot;,&#xd;
+        &quot;plainAccessRequest&quot;: {}&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">unified-uat.digit.org</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/health-service-request/service/v1/_search</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="accept" elementType="Header">
+                <stringProp name="Header.name">accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="x-tenant-id" elementType="Header">
+                <stringProp name="Header.name">x-tenant-id</stringProp>
+                <stringProp name="Header.value">st</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="MDMS search" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;MdmsCriteria&quot;: {&#xd;
+        &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+        &quot;schemaCode&quot;: &quot;Studio.ServiceConfiguration&quot;,&#xd;
+        &quot;filters&quot;: {&#xd;
+            &quot;module&quot;: &quot;Hospital_Management&quot;&#xd;
+        }&#xd;
+    },&#xd;
+    &quot;RequestInfo&quot;: {&#xd;
+        &quot;apiId&quot;: &quot;Rainmaker&quot;,&#xd;
+        &quot;authToken&quot;: &quot;${authToken}&quot;,&#xd;
+        &quot;userInfo&quot;: {&#xd;
+            &quot;id&quot;: 120641,&#xd;
+            &quot;uuid&quot;: &quot;05a41bbf-e6ee-48af-94ce-4f03482e94bb&quot;,&#xd;
+            &quot;userName&quot;: &quot;StudioSuperUser&quot;,&#xd;
+            &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+            &quot;mobileNumber&quot;: &quot;7349125121&quot;,&#xd;
+            &quot;emailId&quot;: null,&#xd;
+            &quot;locale&quot;: null,&#xd;
+            &quot;type&quot;: &quot;EMPLOYEE&quot;,&#xd;
+            &quot;roles&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_DESIGNER&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Localisation admin&quot;,&#xd;
+                    &quot;code&quot;: &quot;LOC_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;STUDIO ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;MDMS ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;MDMS_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;active&quot;: true,&#xd;
+            &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+            &quot;permanentCity&quot;: null&#xd;
+        },&#xd;
+        &quot;msgId&quot;: &quot;1760526585353|en_IN&quot;,&#xd;
+        &quot;plainAccessRequest&quot;: {}&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">unified-uat.digit.org</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/egov-mdms-service/v2/_search</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="accept" elementType="Header">
+                <stringProp name="Header.name">accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="x-tenant-id" elementType="Header">
+                <stringProp name="Header.name">x-tenant-id</stringProp>
+                <stringProp name="Header.value">st</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="workflow process service search" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;RequestInfo&quot;: {&#xd;
+        &quot;apiId&quot;: &quot;Rainmaker&quot;,&#xd;
+        &quot;authToken&quot;: &quot;${authToken}&quot;,&#xd;
+        &quot;msgId&quot;: &quot;1760527270514|en_IN&quot;,&#xd;
+        &quot;plainAccessRequest&quot;: {}&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">unified-uat.digit.org</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/egov-workflow-v2/egov-wf/process/_search?tenantId=st&amp;businessIds=pgr_showcase-demo_case-app-2026-01-21-021984&amp;businessService=PGR_showcase.Demo_case&amp;history=true&amp;_=1768994096575</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="accept" elementType="Header">
+                <stringProp name="Header.name">accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="x-tenant-id" elementType="Header">
+                <stringProp name="Header.name">x-tenant-id</stringProp>
+                <stringProp name="Header.value">st</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="workflow business service search" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;RequestInfo&quot;: {&#xd;
+        &quot;apiId&quot;: &quot;Rainmaker&quot;,&#xd;
+        &quot;authToken&quot;: &quot;${authToken}&quot;,&#xd;
+        &quot;msgId&quot;: &quot;1760527270747|en_IN&quot;,&#xd;
+        &quot;plainAccessRequest&quot;: {}&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">unified-uat.digit.org</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/egov-workflow-v2/egov-wf/businessservice/_search?tenantId=st&amp;businessServices=PGR_showcase.Demo_case</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="accept" elementType="Header">
+                <stringProp name="Header.name">accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="x-tenant-id" elementType="Header">
+                <stringProp name="Header.name">x-tenant-id</stringProp>
+                <stringProp name="Header.value">st</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="boundary-hierarchy-definition" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;BoundaryTypeHierarchySearchCriteria&quot;: {&#xd;
+        &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+        &quot;limit&quot;: 10,&#xd;
+        &quot;offset&quot;: 0,&#xd;
+        &quot;hierarchyType&quot;: &quot;ADMIN&quot;&#xd;
+    },&#xd;
+    &quot;RequestInfo&quot;: {&#xd;
+        &quot;apiId&quot;: &quot;Rainmaker&quot;,&#xd;
+        &quot;authToken&quot;: &quot;${authToken}&quot;,&#xd;
+        &quot;userInfo&quot;: {&#xd;
+            &quot;id&quot;: 120840,&#xd;
+            &quot;uuid&quot;: &quot;f7ff59df-f78f-4b98-adc4-6b0561594a62&quot;,&#xd;
+            &quot;userName&quot;: &quot;SUPERUSER&quot;,&#xd;
+            &quot;name&quot;: &quot;SUPERUSER&quot;,&#xd;
+            &quot;mobileNumber&quot;: &quot;7349125127&quot;,&#xd;
+            &quot;emailId&quot;: &quot;&quot;,&#xd;
+            &quot;locale&quot;: null,&#xd;
+            &quot;type&quot;: &quot;EMPLOYEE&quot;,&#xd;
+            &quot;roles&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;HRMS Admin&quot;,&#xd;
+                    &quot;code&quot;: &quot;HRMS_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_DESIGNER&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Localisation admin&quot;,&#xd;
+                    &quot;code&quot;: &quot;LOC_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;MDMS ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;MDMS_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;STUDIO ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;active&quot;: true,&#xd;
+            &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+            &quot;permanentCity&quot;: &quot;st Corporation&quot;&#xd;
+        },&#xd;
+        &quot;msgId&quot;: &quot;1768994096612|en_IN&quot;,&#xd;
+        &quot;plainAccessRequest&quot;: {}&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">unified-uat.digit.org</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/egov-workflow-v2/egov-wf/businessservice/_search?tenantId=st&amp;businessServices=PGR_showcase.Demo_case</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="accept" elementType="Header">
+                <stringProp name="Header.name">accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="x-tenant-id" elementType="Header">
+                <stringProp name="Header.name">x-tenant-id</stringProp>
+                <stringProp name="Header.value">st</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="boundary-relationship" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;RequestInfo&quot;: {&#xd;
+        &quot;apiId&quot;: &quot;Rainmaker&quot;,&#xd;
+        &quot;authToken&quot;: &quot;${authToken}&quot;,&#xd;
+        &quot;userInfo&quot;: {&#xd;
+            &quot;id&quot;: 120840,&#xd;
+            &quot;uuid&quot;: &quot;f7ff59df-f78f-4b98-adc4-6b0561594a62&quot;,&#xd;
+            &quot;userName&quot;: &quot;SUPERUSER&quot;,&#xd;
+            &quot;name&quot;: &quot;SUPERUSER&quot;,&#xd;
+            &quot;mobileNumber&quot;: &quot;7349125127&quot;,&#xd;
+            &quot;emailId&quot;: &quot;&quot;,&#xd;
+            &quot;locale&quot;: null,&#xd;
+            &quot;type&quot;: &quot;EMPLOYEE&quot;,&#xd;
+            &quot;roles&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;HRMS Admin&quot;,&#xd;
+                    &quot;code&quot;: &quot;HRMS_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_DESIGNER&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Localisation admin&quot;,&#xd;
+                    &quot;code&quot;: &quot;LOC_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;MDMS ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;MDMS_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;STUDIO ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;active&quot;: true,&#xd;
+            &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+            &quot;permanentCity&quot;: &quot;st Corporation&quot;&#xd;
+        },&#xd;
+        &quot;msgId&quot;: &quot;1768994096613|en_IN&quot;,&#xd;
+        &quot;plainAccessRequest&quot;: {}&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">unified-uat.digit.org</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/egov-workflow-v2/egov-wf/businessservice/_search?tenantId=st&amp;businessServices=PGR_showcase.Demo_case</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="accept" elementType="Header">
+                <stringProp name="Header.name">accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="x-tenant-id" elementType="Header">
+                <stringProp name="Header.name">x-tenant-id</stringProp>
+                <stringProp name="Header.value">st</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="health-service-definition" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;ServiceDefinitionCriteria&quot;: {&#xd;
+        &quot;code&quot;: [&#xd;
+            &quot;Demo_case.PENDING_FOR_ASSIGNMENT.complaint details&quot;&#xd;
+        ],&#xd;
+        &quot;tenantId&quot;: &quot;st&quot;&#xd;
+    },&#xd;
+    &quot;includeDeleted&quot;: true,&#xd;
+    &quot;RequestInfo&quot;: {&#xd;
+        &quot;apiId&quot;: &quot;Rainmaker&quot;,&#xd;
+        &quot;authToken&quot;: &quot;${authToken}&quot;,&#xd;
+        &quot;userInfo&quot;: {&#xd;
+            &quot;id&quot;: 120840,&#xd;
+            &quot;uuid&quot;: &quot;f7ff59df-f78f-4b98-adc4-6b0561594a62&quot;,&#xd;
+            &quot;userName&quot;: &quot;SUPERUSER&quot;,&#xd;
+            &quot;name&quot;: &quot;SUPERUSER&quot;,&#xd;
+            &quot;mobileNumber&quot;: &quot;7349125127&quot;,&#xd;
+            &quot;emailId&quot;: &quot;&quot;,&#xd;
+            &quot;locale&quot;: null,&#xd;
+            &quot;type&quot;: &quot;EMPLOYEE&quot;,&#xd;
+            &quot;roles&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;HRMS Admin&quot;,&#xd;
+                    &quot;code&quot;: &quot;HRMS_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_DESIGNER&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Localisation admin&quot;,&#xd;
+                    &quot;code&quot;: &quot;LOC_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;MDMS ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;MDMS_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;STUDIO ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;active&quot;: true,&#xd;
+            &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+            &quot;permanentCity&quot;: &quot;st Corporation&quot;&#xd;
+        },&#xd;
+        &quot;msgId&quot;: &quot;1768994097314|en_IN&quot;,&#xd;
+        &quot;plainAccessRequest&quot;: {}&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">unified-uat.digit.org</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/egov-workflow-v2/egov-wf/businessservice/_search?tenantId=st&amp;businessServices=PGR_showcase.Demo_case</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="accept" elementType="Header">
+                <stringProp name="Header.name">accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="x-tenant-id" elementType="Header">
+                <stringProp name="Header.name">x-tenant-id</stringProp>
+                <stringProp name="Header.value">st</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Inbox search" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;inbox&quot;: {&#xd;
+        &quot;processSearchCriteria&quot;: {&#xd;
+            &quot;businessService&quot;: [&#xd;
+                &quot;Hospital_Management.service_Delivery&quot;&#xd;
+            ],&#xd;
+            &quot;moduleName&quot;: &quot;public-services&quot;,&#xd;
+            &quot;tenantId&quot;: &quot;st&quot;&#xd;
+        },&#xd;
+        &quot;moduleSearchCriteria&quot;: {&#xd;
+            &quot;sortOrder&quot;: &quot;ASC&quot;,&#xd;
+            &quot;module&quot;: &quot;Hospital_Management&quot;,&#xd;
+            &quot;businessService&quot;: &quot;service_Delivery&quot;&#xd;
+        },&#xd;
+        &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+        &quot;limit&quot;: 10,&#xd;
+        &quot;offset&quot;: 0&#xd;
+    },&#xd;
+    &quot;RequestInfo&quot;: {&#xd;
+        &quot;apiId&quot;: &quot;Rainmaker&quot;,&#xd;
+        &quot;authToken&quot;: &quot;${authToken}&quot;,&#xd;
+        &quot;userInfo&quot;: {&#xd;
+            &quot;id&quot;: 120641,&#xd;
+            &quot;uuid&quot;: &quot;05a41bbf-e6ee-48af-94ce-4f03482e94bb&quot;,&#xd;
+            &quot;userName&quot;: &quot;StudioSuperUser&quot;,&#xd;
+            &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+            &quot;mobileNumber&quot;: &quot;7349125121&quot;,&#xd;
+            &quot;emailId&quot;: null,&#xd;
+            &quot;locale&quot;: null,&#xd;
+            &quot;type&quot;: &quot;EMPLOYEE&quot;,&#xd;
+            &quot;roles&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Studio Designer&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_DESIGNER&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;Localisation admin&quot;,&#xd;
+                    &quot;code&quot;: &quot;LOC_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;STUDIO ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;STUDIO_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;MDMS ADMIN&quot;,&#xd;
+                    &quot;code&quot;: &quot;MDMS_ADMIN&quot;,&#xd;
+                    &quot;tenantId&quot;: &quot;st&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;active&quot;: true,&#xd;
+            &quot;tenantId&quot;: &quot;st&quot;,&#xd;
+            &quot;permanentCity&quot;: null&#xd;
+        },&#xd;
+        &quot;msgId&quot;: &quot;1760528241341|en_IN&quot;,&#xd;
+        &quot;plainAccessRequest&quot;: {}&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">unified-uat.digit.org</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/inbox/v2/_search</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="accept" elementType="Header">
+                <stringProp name="Header.name">accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="x-tenant-id" elementType="Header">
+                <stringProp name="Header.name">x-tenant-id</stringProp>
+                <stringProp name="Header.value">st</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="public service init search" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">unified-uat.digit.org</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.path">/public-service-init/v1/service?tenantId=st</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">auth-token</stringProp>
+                <stringProp name="Header.value">${authToken}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">x-tenant-id</stringProp>
+                <stringProp name="Header.value">st</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">true</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">true</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
